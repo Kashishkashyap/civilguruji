@@ -17,6 +17,10 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.1",
     "node-cron": "^3.0.3",
-    "nodemailer": "^6.9.8"
+    "nodemailer": "^6.9.8",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.1"
   }
 }

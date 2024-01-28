@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cron = require('node-cron');
 
-const dotenv = require('dotenv');
-dotenv.config({ path: '.env' });
+const dotenv = require('dotenv').config();
+// dotenv.config({ path: '.env' });
 
-mongoose.connect(process.env.MONGO_URI)
-
+mongoose.connect(process.env.MONGO_URI);
+console.log(process.env.MONGO_URI)
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -34,6 +34,6 @@ cron.schedule('0 0 * * *', async () => {
 app.get('/', (req, res) => {
     res.send("Hi")
 })
-app.listen(5000, () => {
-    console.log("Listening on port 3000");
+app.listen(process.env.PORT, () => {
+    console.log(`Listening on port ${process.env.PORT}`);
 })
